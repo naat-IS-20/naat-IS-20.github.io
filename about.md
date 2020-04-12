@@ -2,6 +2,7 @@
 layout: page
 title: Acerca de
 permalink: /about/
+nav_order: 6
 ---
 
 ## Acerca de

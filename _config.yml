@@ -33,7 +33,7 @@ plugins:
   - jekyll-feed
 
 # Just-the-docs specefic configuration
-logo: "/assets/images/naat_logo.PNG"
+logo: "/assets/images/naat_logo.png"
 
 aux_links:
   "Naat en GitHub":
@@ -41,7 +41,7 @@ aux_links:
 
 footer_content: "Copyright 2020 Naat."
 
-color_scheme: "dark"
+#color_scheme: "dark"
 
 
 # Exclude from processing.
