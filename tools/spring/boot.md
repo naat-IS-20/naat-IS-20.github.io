@@ -19,7 +19,7 @@ por omisión.
 
 Para habilitarlo, es suficiente incluir el plugin de _Boot_, como ya está hecho en el proyecto de ejemplo.
 
-```kotlin
+```groovy
 plugins {
   id 'org.springframework.boot' version '2.3.0.M4'
   id 'io.spring.dependency-management' version '1.0.9.RELEASE'
@@ -73,7 +73,7 @@ Este _Starter_ incluye lo necesario para manejar bases de datos desde _Java_ usa
 Para habilitarla sólo hay que agregarla a las dependencias, junto con el driver de la base de datos a user. Para
 desarrollo, creo que lo más sencillo es _H2_.
 
-```kotlin
+```groovy
 dependencies {
   implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
   runtimeOnly 'com.h2database:h2'
