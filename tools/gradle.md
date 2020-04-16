@@ -171,7 +171,9 @@ $ tree
 2 directories, 6 files
 ```
 
-`setting.gradle` es la configuración local de _Gradle_ y `build.gradle` son las tareas del projecto.
+`setting.gradle` es la configuración local de _Gradle_. Puede haber sólo una por projecto de _Gradle_ y se ejecuta
+antes de realizar cualquier otra acción. Es opcional en los projectos de un sólo módulo.
+`build.gradle` son las tareas y dependencias del projecto. Puede haber una por módulo.
 
 `gradlew` significa _Gradle Wrapper_. Son archivos ejecutables. Esto se debe a que para construir un proyecto no es
 necesario tener _Gradle_ instaldao. Se captura la configuración en los archivos ejecutables.

@@ -8,14 +8,14 @@ nav_order: 1
 
 # Spring Boot
 
-Si bien _Spring_ provee varias soluciones, aún es necesario invocarlas e integrarlas en un proyecto funcional. Esto es
-sí resulta algo complicado.
+Si bien _Spring_ provee varias soluciones, aún es necesario invocarlas e integrarlas en un proyecto funcional. Esto
+puede resultar complicado.
 
 Para agilizar esto, se creó _Spring Boot_. Es una herramienta de configuración automática.
 
 Entre otras cosas, _Boot_ busca en el árbol de dependencias e integra las bibliotecas encontradas al proyeco. Luego,
-busca archivos de configuración dentro del paquete del proyecto. En caso de no encontrar nada, utiliza una configuración
-por omisión.
+busca archivos de configuración dentro del paquete del proyecto para configurar las bibliotecas encontradas. En caso de
+no encontrar nada, utiliza una configuración por omisión.
 
 Para habilitarlo, es suficiente incluir el plugin de _Boot_, como ya está hecho en el proyecto de ejemplo.
 
@@ -23,12 +23,27 @@ Para habilitarlo, es suficiente incluir el plugin de _Boot_, como ya está hecho
 plugins {
   id 'org.springframework.boot' version '2.3.0.M4'
   id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-  ...
+  ....
 }
-...
+....
 ```
 
-Y anotar la clase `main` como aplicación de _SpringBoot_.
+Hay que notar que este plugin no se encuentra en el repositorio por omisión de plugins para _Gradle_. Así que hay que
+agregarlo explícitamente.
+
+Por razones que no comprendo bien, los plugins deben ser cargados antes de la ejecución de todos los demás bloques. Por
+lo que el repositorio de plugins debe especifcarse en un bloque especial en `settiings.gradle`.
+
+```groovy
+pluginManagement {
+  repositories {
+    maven { url 'https://repo.spring.io/milestone' }
+    gradlePluginPortal()
+  }
+}
+```
+
+Y finalmente, hay que anotar la clase `main` como aplicación de _SpringBoot_.
 
 ```java
 package com.example.demo;

@@ -31,8 +31,8 @@ Luego, se crean las dos carpetas.
 
 ```console
 .
-├── nix-app
-├── nix-ui
+├── nix-app <--
+├── nix-ui <--
 ├── build.gradle
 ├── gradle
 │   └── wrapper
@@ -52,7 +52,7 @@ _Gradle_.
 .
 ├── angular.json
 ├── browserslist
-├── build.gradle
+├── build.gradle <--
 ├── dist
 ├── e2e
 ├── karma.conf.js
