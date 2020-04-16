@@ -254,13 +254,79 @@ Es posible que uun mismo archivo de _Gradle_ se encargue de manipular varios pro
 
 Con los dos proyectos ya configurados en _Gradle_, basta con agregar ambos a un nuevo proyecto que los contenga.
 
-En este la carpeta que los contenga, se debe inicializar un projecto en blanco.
-
 Se modifica `setting.gradle`
 
 ```groovy
 include 'project1', 'project2', ...
 ```
+
+Y esto es suficiente para manejarlos como subproyectos del proyecto raíz.
+
+#### Tareas en multimódulos
+
+Se puede apreciar la estrucutra de los subprojectos con la tarea `projects`.
+
+Por ejemplo
+
+```console
+$ ./gradlew projects
+
+> Task :projects
+
+------------------------------------------------------------
+Root project
+------------------------------------------------------------
+
+Root project 'test-app'
++--- Project ':app'
+\--- Project ':app-ui'
+
+To see a list of the tasks of a project, run gradlew <project-path>:tasks
+For example, try running gradlew :app:tasks
+
+BUILD SUCCESSFUL in 910ms
+1 actionable task: 1 executed
+```
+
+Y como se menciona en la salida del comando anterior, se pueden ejecutar tareas de los subproyectos desde el proyecto
+raíz. La sintaxis es `:<project>:<task>`.
+
+```console
+$ ./gradlew :app:check
+
+BUILD SUCCESSFUL in 1s
+5 actionable tasks: 5 up-to-date
+```
+
+Además, si se ejeucuta una tarea desde el proyecto raíz, se intentará ejecutar esa tarea en todos los subproyectos.
+
+#### Configuración en multimódulos
+
+Se pueden configurar caracterísitcas en común de los subproyectos.
+
+```groovy
+subprojects {
+  ....
+}
+```
+
+O si se quiere configurar además el projecto raíz
+
+```groovy
+allprojects {
+  ....
+}
+```
+
+E inclusive se puede inyectar configuraciones a los projectos de forma individual
+
+```groovy
+project(:'<project>') {
+  ....
+}
+```
+
+#### Dependencias en multimódulos
 
 Pero tener varios projectos no implica nada más. En general esto se hace por depedencia entre diferentes partes del
 proyecto. Esto se puede hacer agregando un proyecto como dependencia de otro.
@@ -269,7 +335,7 @@ Por ejemplo, si `project2` requiere de `proyect1`, entonces `proyect2/build.grad
 
 ```groovy
 dependencies {
-  compile project('project1')
+  implementation project('project1')
 }
 ```
 
@@ -282,3 +348,5 @@ La sintaxis de `project` indica que se debe obtener de otro módulo de _Gradle_ 
 * <https://guides.gradle.org/creating-new-gradle-builds/>
 
 * <https://guides.gradle.org/creating-multi-project-builds/>
+
+* <https://docs.gradle.org/current/userguide/multi_project_builds.html>

@@ -25,4 +25,5 @@ caso será _H2_ para desarrollo y _MySQL_ para producción.
 
 ## Cliente
 
-El cliente está desarrollado en _Javascript_ a través de _Angular_.
+El cliente está desarrollado en _Javascript_ en el ambiente de _NodeJS_ usando
+el marco de trabajo _Angular_.
