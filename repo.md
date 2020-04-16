@@ -127,10 +127,10 @@ ejecutable final.
 ```groovy
 project(':nix-app') {
   dependencies {
-    implementation project(':app-ui')
+    implementation project(':nix-ui')
   }
 
-  build.dependsOn ':app-ui:build'
+  build.dependsOn ':nix-ui:build'
 }
 ```
 
@@ -138,9 +138,9 @@ Además, por omisión, _Angular_ compila sus archivos en `dist/<project>`. Pero 
 desde `static`. Así que se copian los archivos.
 
 ```groovy
-project(':app-ui') {
+project(':nix-ui') {
   jar {
-    from 'dist/app-ui'
+    from 'dist/nix-ui'
     into 'static'
   }
 }
@@ -165,7 +165,7 @@ pluginManagement {
 Y por supuesto, no hay que olvidar declara explícitamente los subproyectos en ese mismo archivo.
 
 ```groovy
-include 'app-ui', 'app'
+include 'nix-ui', 'nix-app'
 ```
 
 ## Correr proyectos
