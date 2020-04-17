@@ -115,7 +115,7 @@ Existe un [plugin][node_grd] de para ejecutar comandos de `node` como tareas de 
 
 Dentro de un projeco de _Gradle_, se agreda el plugin.
 
-```groovy
+```gradle
 plugins {
   id "com.moowork.node" version "1.3.1"
 }
@@ -123,7 +123,7 @@ plugins {
 
 Para ejecutar programas de _Javascript_, se definen tareas de tipo `NodeTask`.
 
-```groovy
+```gradle
 task script(type: NodeTask) {
   script = file('src/script.js')
   args = ['arg1', ...]
@@ -133,7 +133,7 @@ task script(type: NodeTask) {
 
 Es posible configurar algunos parámetros de `node`
 
-```groovy
+```gradle
 node {
   version = '12.16.2'
 

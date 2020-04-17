@@ -19,7 +19,7 @@ no encontrar nada, utiliza una configuración por omisión.
 
 Para habilitarlo, es suficiente incluir el plugin de _Boot_, como ya está hecho en el proyecto de ejemplo.
 
-```groovy
+```gradle
 plugins {
   id 'org.springframework.boot' version '2.3.0.M4'
   id 'io.spring.dependency-management' version '1.0.9.RELEASE'
@@ -34,7 +34,7 @@ agregarlo explícitamente.
 Por razones que no comprendo bien, los plugins deben ser cargados antes de la ejecución de todos los demás bloques. Por
 lo que el repositorio de plugins debe especifcarse en un bloque especial en `settiings.gradle`.
 
-```groovy
+```gradle
 pluginManagement {
   repositories {
     maven { url 'https://repo.spring.io/milestone' }
@@ -85,19 +85,36 @@ con _Spring_ suelen tener o varios estándares de arquitectura de software comun
 
 Este _Starter_ incluye lo necesario para manejar bases de datos desde _Java_ usando el projecto _Spring JPA_.
 
+_Spring JPA_ es una especificación sobre un sistema de _ORM_ (_Object Relational Mapping_). Esto permite definir y
+manejar bases de datos y todo lo relacionado con manejo de datos persistentes por medio de clases de _Java_. Esto es
+para poder usar cuaquier _DBMS_ sin tener que modificar la definición de la base de datos.
+
+La implemetación que se usa por omisión es [_Hibernate_][hib].
+
 Para habilitarla sólo hay que agregarla a las dependencias, junto con el driver de la base de datos a user. Para
 desarrollo, creo que lo más sencillo es _H2_.
 
-```groovy
+```gradle
 dependencies {
   implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
   runtimeOnly 'com.h2database:h2'
 }
 ```
 
-Además de manejar la base de datos, se pueden definir tablas como clases de _Java_ y el _DAO_ como una interfaz.
-Todo este código generado agiliza el desarrollo general del proyecto.
+Además de manejar la base de datos, automatiza la creación de tablas como clases de _Java_, provee implementaciones
+generadas de _DAO_ a través de interfaces, provee implementación automática de operaciones _CRUD_ y también provee una
+interfaz sencilla para definir comandos de _SQL_ directamente.
+
+Y se puede definir un script poblar la base de datos agregando el archivo `src/main/resources/data.sql`.
+
+Todo estás acciones automáticas agilizan el desarrollo general del proyecto.
 
 ### Spring Data _REST_
 
 ### Spring Security
+
+## Referencias
+
+* [hib]
+
+[hib]: https://hibernate.org/

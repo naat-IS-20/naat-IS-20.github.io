@@ -195,7 +195,7 @@ Estas tareas son implementadas como funciones de _Groovy_.
 
 Un ejemplo de la guía es crear una tarea que copie un archivo del directorio `src` al directorio `dst`.
 
-```groovy
+```gradle
 task copy(type: Copy, group: "Custom", description: "Copies sources to the dest directory") {
     from "src"
     into "dest"
@@ -258,7 +258,7 @@ Con los dos proyectos ya configurados en _Gradle_, basta con agregar ambos a un 
 
 Se modifica `setting.gradle`
 
-```groovy
+```gradle
 include 'project1', 'project2', ...
 ```
 
@@ -306,7 +306,7 @@ Además, si se ejeucuta una tarea desde el proyecto raíz, se intentará ejecuta
 
 Se pueden configurar caracterísitcas en común de los subproyectos.
 
-```groovy
+```gradle
 subprojects {
   ....
 }
@@ -314,7 +314,7 @@ subprojects {
 
 O si se quiere configurar además el projecto raíz
 
-```groovy
+```gradle
 allprojects {
   ....
 }
@@ -322,7 +322,7 @@ allprojects {
 
 E inclusive se puede inyectar configuraciones a los projectos de forma individual
 
-```groovy
+```gradle
 project(:'<project>') {
   ....
 }
@@ -335,7 +335,7 @@ proyecto. Esto se puede hacer agregando un proyecto como dependencia de otro.
 
 Por ejemplo, si `project2` requiere de `proyect1`, entonces `proyect2/build.gradle` tendría la siguiente dependencia.
 
-```groovy
+```gradle
 dependencies {
   implementation project('project1')
 }

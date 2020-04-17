@@ -129,8 +129,10 @@ $ brew services start mysql
 En _Windows_
 
 ```powershell
-> "C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld" --console
+> "C:\tools\mysql\mysql-<version>-winx64\bin\mysqld" --console
 ```
+
+Al momentode esto guía, `<version>=8.0.19`
 
 Revisar que el comando siguiente se ejecute correctamente
 

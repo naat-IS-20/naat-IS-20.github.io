@@ -22,7 +22,7 @@ Además, provee mecanismo para inferencia de tipos para variables locales.
 Se encuentra en los repositorios usados por _Gradle_. Además de incluirlo como dependencia, hay que indicar que se usará
 como procesador de anotaciones.
 
-```groovy
+```gradle
 depenencies {
   compileOnly 'org.projectlombok:lombok'
   annotationProcessor 'org.projectlombok:lombok'
