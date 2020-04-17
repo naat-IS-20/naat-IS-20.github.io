@@ -13,6 +13,9 @@ El proyecto va a constar de un cliente de _Angular_ que consume una _API_ de
 _Spring_. Estos deben estar contenidos dentro de un proyecto multimódulo de
 _Gradle_.
 
+En necesario tener instalado el [_JDK_](/tools/jdk), [_Gradle_](/tools/gradle), [_NodeJS_](/tools/node) y
+[_Angular_](/tools/angular).
+
 Primero, se crea el multimódulo como un proycto básico de _Gradle_.
 
 ```console
@@ -102,7 +105,6 @@ en el proyecto raíz.
 .
 ├── build.gradle
 ├── HELP.md
-├── settings.gradle
 └── src
     ├── main
     └── test
@@ -110,7 +112,7 @@ en el proyecto raíz.
 
 ## Configuración del proyecto raíz
 
-Se tiene que especificar la versión de _JDK_ a usar. Como tiene que coincidir en ambos proyectos, se usar `subprojects`.
+Se tiene que especificar la versión de _JDK_ a usar. Como tiene que coincidir en ambos proyectos, se usa `subprojects`.
 
 ```groovy
 subprojects {
@@ -134,8 +136,8 @@ project(':nix-app') {
 }
 ```
 
-Además, por omisión, _Angular_ compila sus archivos en `dist/<project>`. Pero _Spring_ por omisión leer los archivos
-desde `static`. Así que se copian los archivos.
+Además, por omisión, _Angular_ compila sus archivos en `dist/<project>`. Pero _Spring_  lee los archivos desde `static`.
+Así que se copian los archivos.
 
 ```groovy
 project(':nix-ui') {

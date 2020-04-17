@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Cliente
+title: Vista
 permalink: /ui/
 nav_order: 5
 ---
