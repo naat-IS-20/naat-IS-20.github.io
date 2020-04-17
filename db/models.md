@@ -11,8 +11,7 @@ nav_order: 1
 
 Usando anotaciones, JPA permite definir tablas en bases de datos usando clases normales de _Java_.
 
-Las clases deben estar anotadas con `@Entity`. Cada atributo se mapea a una columna en la tabla. Para configurar las
-columnas existen anotaciones más específicas.
+Cada atributo se mapea a una columna en la tabla. Para configurar las columnas existen anotaciones más específicas.
 
 Esta clase debe incluir métodos para acceder y modificar todos los atributos.
 
@@ -69,3 +68,7 @@ mapea.
 ### Uno a muchos / muchos a uno
 
 ### Muchos a muchos
+
+## Referencias
+
+* <https://www.baeldung.com/spring-data-rest-relationships>
