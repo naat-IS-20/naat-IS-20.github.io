@@ -7,10 +7,10 @@ nav_order: 2
 
 # DAO
 
-_Spring JPA_ provee varias interfaces que en tiempo de compilación se usan para
-crear una clase con los métodos necesarios para el DAO.
+_Spring JPA_ provee varias interfaces que en tiempo de compilación se usan para crear una clase con los métodos
+necesarios para el DAO. Se puede consultar una comparación entre los [diferentes tipos][repos].
 
-La que nos es relavante es `CrudRepository<T, ID>`.
+La que nos es relavante es `CrudRepository<T, ID>`, cuyo código está [disponible][crudr]
 
 Esta declara los siguientes método a implementar.
 
@@ -56,3 +56,13 @@ public interface FlowerRepository extends CrudRepository<Flower, Long>{}
 
 Al momento de compilación, _Spring Boot_ encontrará esta interfaz, y generará
 una clase concreta encargada de manipular la entidad.
+
+# Referencias
+
+* <https://github.com/spring-projects/spring-data-commons>
+
+* [repos]
+
+[repos]: https://www.baeldung.com/spring-data-repositories
+
+[crudr]: https://github.com/spring-projects/spring-data-commons/blob/master/src/main/java/org/springframework/data/repository/CrudRepository.java

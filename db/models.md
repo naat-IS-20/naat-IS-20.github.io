@@ -28,14 +28,7 @@ Algunas comunes son
 En el caso más sencillo, tenemos por ejemplo
 
 ```java
-package com.example.demo.models;
-
-import lombok.Data;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NotNull;
-
+...
 @Data
 @Entity
 public class Food {
@@ -48,27 +41,177 @@ public class Food {
   @NotNull
   private int price;
 }
+...
 ```
 
 ## Relaciones
 
 Definir relaciones se hace a través de anotaciones.
 
-Las relaciones en _JPA_ constan de dos entidades, una de ellas siendo la dueña
-de la relación.
+Las relaciones en _JPA_ constan de dos entidades, una de ellas siendo la dueña de la relación.
 
-La dueña debe indicar cualquier detalle extra sobre como se va a comportar la
-llave foránea.
+La dueña debe indicar cualquier detalle extra sobre como se va a comportar la llave foránea.
 
-La otra entidad únicamente tiene que indicar el nombre del atributo al que se
-mapea.
+La otra entidad únicamente tiene que indicar el nombre del atributo al que se mapea.
+
+Algunas anotaciones para relaciones
+
+* `@JoinColumn`: indica una llave foránea. Tiene algunos parámetros
+
+  * `name`: indica el nombre de la llave foránea en la tabla. Es necesaria cuando la llave foránea tiene el mismo
+    nombre que un atributo de la clase actual.
+  * `nullable`: lo que parece
+  * `unique`: lo que parece
+
+  Se pueden consultar el resto de los [atributos][jcol].
+
+* `@JoinColumns`: define una llave foránea compuesta
+
+* `@InverseJoinColums`: defina una llave foránea para la entidad que no es la dueña de la relación.
+
+* `@JoinTable`: indica la tabla que representa la relación. Esto es para las relaciones de muchos a muchos.
+
+  * `name`: nombre de la tabla en la base de datos.
+
+  El resto de los atributos se puede [consultar][mtm].
 
 ### Uno a uno
 
+`@OneToOne` tiene varios atributos
+
+* `cascade`: indica como reaccionará la tabla antes modificaciones en la llave foránea.
+* `mappedBy`: en la parte no dueña, indica el nombre del atributo en la entidad dueña.
+* `optional`: como `nullable`.
+
+Más información en la [documentación][oto].
+
+Una entidad dueña
+
+```java
+...
+@Data
+@Entity
+class User {
+  @Id
+  private String mail;
+
+  @OneToOne
+  @JoinColumn(name="cart_id")
+  private Cart cart;
+}
+...
+```
+
+Y la otra entidad.
+
+```java
+...
+@Data
+@Entity
+class Cart {
+  @Id
+  @GeneratedValue
+  private long id;
+
+  @OneToOne(mappedBy="cart")
+  private User user;
+}
+...
+```
+
 ### Uno a muchos / muchos a uno
 
+En este caso, creo que tendría más sentido que la entidad única sea la dueña.
+
+Las anotaciones son `@OneToMany` y `@ManyToOne`. La lista de parámetros se puede consultar [aquí][otm] y [aquí][mto]
+respectivamente.
+
+Por ejemplo
+
+```java
+@Data
+@Entity
+public class Order {
+  @Id
+  @GeneratedValue
+  private long id;
+
+  @ManyToOne
+  @JoinColumn(name="status")
+  private Status status;
+}
+```
+
+Y la entidad de muchos
+
+```java
+...
+@Data
+@Entity
+public class Status {
+  @Id
+  private Long name;
+
+  @ManyToOne(mappedBy="status")
+  private List<Order> orders;
+}
+...
+```
+
 ### Muchos a muchos
+
+La anotación es `@ManyToMany`. En este caso, se tiene que definir una tabla en la parte de la entidad dueña.
+
+En este caso, las llaves se llaman igual, por lo que hay que renombrarlas en la nueva tabla.
+
+Los demás atributos se puede encontrar [aquí][mtm].
+
+La entidad dueña
+
+```java
+...
+@Data
+@Entity
+public class Food {
+  @GeneratedValue
+  @Id
+  private Long id;
+
+  private String name;
+
+  @ManyToMany
+  @JoinTable(
+    name="food_order",
+    joinColumns=@JoinColumn(name="food_id")
+    inversJoinColumns=@JoinColumn(name="order_id")
+  )
+  private List<Order> orders;
+}
+...
+```
+
+Y la otra entidad
+
+```java
+@Data
+@Entity
+public class Order {
+  @Id
+  @GeneratedValue
+  private long id;
+
+  @ManyToMany(mapperBy="orders")
+  private List<Food> foods;
+}
+```
 
 ## Referencias
 
 * <https://www.baeldung.com/spring-data-rest-relationships>
+* <https://www.objectdb.com/api/java/jpa>
+
+[jcol]: https://www.objectdb.com/api/java/jpa/JoinColumn
+[oto]: https://www.objectdb.com/api/java/jpa/OneToOne
+[otm]: https://www.objectdb.com/api/java/jpa/OneToMany
+[mto]: https://www.objectdb.com/api/java/jpa/ManyToOne
+[mtm]: https://www.objectdb.com/api/java/jpa/ManyToMany
