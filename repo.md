@@ -1,9 +1,9 @@
----
+<!---
 layout: default
 title: Repositorio
 permalink: /repo/
 nav_order: 6
----
+--->
 
 # Crear el repositorio
 
