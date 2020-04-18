@@ -80,10 +80,51 @@ Que es una estructura común para proyectos de _Gradle_.
 
 Este proyecto siempre es una aplicación de _Spring Boot_.
 
+## Estructura de proyectos
+
+En _Spring_, el patrón de _MVC_ se traduce de la siguiente manera.
+
+* _Modelos_: son mapeos directos del contenido de la base de datos.
+
+* _Repositorios_: otra palabra para _DAO_. Proveen un _CRUD_ del modelo.
+
+* _Servicios_: contienen la lógica de la aplicación. Usan operaciones de los repositorios para realizar operaciones más
+    complejas y con más interacción entre diferentes modelos.
+
+* _Controladores_: proveen el mapeo entre las peticiones _HTTP_ y acciones del sistema (implementadas en los servicios).
+    Es conveniente agruparlos por jerarquías.
+
+Cada característica del sistema posee al menos una clase de cada tipo.
+
+_JPA_ provee mecanismos para facilitar la implementación de los primeros dos.
+
+Este es un ejemplo de estrucutra de proyecto de la guía de _Spring Boot_. `customer` y `order` son características del sistema.
+
+```console
+com
+ +- example
+     +- myapplication
+         +- Application.java
+         |
+         +- customer
+         |   +- Customer.java
+         |   +- CustomerController.java
+         |   +- CustomerService.java
+         |   +- CustomerRepository.java
+         |
+         +- order
+             +- Order.java
+             +- OrderController.java
+             +- OrderService.java
+             +- OrderRepository.java
+```
+
 ## Referencias
 
 * <https://www.baeldung.com/spring-why-to-choose>
 * <https://docs.spring.io/spring/docs/current/spring-framework-reference/>
 * <https://spring.io/projects>
+* <https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot>
+* <https://www.baeldung.com/spring-boot-package-structure>
 
 [Initializr]: https://start.spring.io/

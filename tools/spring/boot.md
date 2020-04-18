@@ -109,7 +109,7 @@ Y se puede definir un script poblar la base de datos agregando el archivo `src/m
 
 Todo estás acciones automáticas agilizan el desarrollo general del proyecto.
 
-### Spring Data _REST_
+Como se van a usar estas características está explicado en la sección de la [base de datos](/db/).
 
 ### Spring Security
 
