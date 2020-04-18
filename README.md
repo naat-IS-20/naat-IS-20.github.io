@@ -7,4 +7,4 @@
 
 Sitio de referencia para las tecnologías e implementación de los trabajos necesarios.
 
-Para ver el contenido del sitio, referisite a <https://naat-is-20.github.io/>.
+Para ver el contenido del sitio, referirse a <https://naat-is-20.github.io/>.
