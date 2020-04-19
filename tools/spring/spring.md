@@ -122,9 +122,9 @@ com
 ## Referencias
 
 * <https://www.baeldung.com/spring-why-to-choose>
-* <https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html>
+* <https://docs.spring.io/spring/docs/current/spring-framework-reference/>
 * <https://spring.io/projects>
-* <https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot>
+* <https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html>
 * <https://www.baeldung.com/spring-boot-package-structure>
 
 [Initializr]: https://start.spring.io/
