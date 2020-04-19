@@ -149,7 +149,7 @@ Se traduce a varias otras anotaciones.
 
 * `@RequiredArgsConstrucutor` que genera un constructor con todos los atributos.
 
-Con todo lo que provee, usarlo ahorra la imlementación de cualquier método al crea tablas como clases.
+Con todo lo que provee, usarlo ahorra la implementación de cualquier método al crea tablas como clases.
 
 ## Referencias
 

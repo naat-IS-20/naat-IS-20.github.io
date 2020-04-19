@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Vista
-permalink: /ui/
+permalink: /layout/
 nav_order: 5
+has_children: true
 ---
 
 # Interfaz de usuario

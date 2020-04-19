@@ -18,13 +18,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Naat
+title: Na'at
 email: equiroz@ciencias.unam.mx
 description: >- # this means to ignore newlines until "baseurl:"
   Descripción de herramientas y guías.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  naat-IS-20
+permalink: pretty # nice looking URLs
 
 # Build settings
 remote_theme: pmarsceill/just-the-docs
@@ -36,7 +37,7 @@ plugins:
 logo: "/assets/images/naat_logo.png"
 
 aux_links:
-  "Naat en GitHub":
+  "Na'at en GitHub":
     - "//github.com/naat-IS-20"
 
 footer_content: "Copyright 2020 Naat."

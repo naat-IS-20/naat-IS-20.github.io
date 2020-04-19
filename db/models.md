@@ -15,7 +15,7 @@ Cada atributo se mapea a una columna en la tabla. Para configurar las columnas e
 
 Esta clase debe incluir métodos para acceder y modificar todos los atributos.
 
-Una manera sencilla de implementarlos es usando anotaciones de Lombok para generarlos.
+Una manera sencilla de implementarlos es usando anotaciones de _Lombok_ para generarlos.
 
 Algunas comunes son
 

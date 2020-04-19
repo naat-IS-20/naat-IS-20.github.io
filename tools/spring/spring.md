@@ -122,7 +122,7 @@ com
 ## Referencias
 
 * <https://www.baeldung.com/spring-why-to-choose>
-* <https://docs.spring.io/spring/docs/current/spring-framework-reference/>
+* <https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot.html>
 * <https://spring.io/projects>
 * <https://docs.spring.io/spring-boot/docs/current/reference/html/using-spring-boot>
 * <https://www.baeldung.com/spring-boot-package-structure>

@@ -33,17 +33,17 @@ De acuerdo a la guía de construcción de software, hay que hacer lo siguiente.
 
      Requiere crear un proyecto de [_Spring_](/tools/spring) con las siguientes dependencias
 
-     * Spring Web: servidor
+     * _Spring Web_: servidor
 
-     * Spring Data JPA: base de datos
+     * _Spring Data JPA_: base de datos
 
-     * Spring Security: usuarios
+     * _Spring Security_: usuarios
 
-     * MySQL Driver: base de datos
+     * _MySQL Driver_: base de datos
 
-     * Thymeleaf: vista
+     * _Thymeleaf_: vista
 
-     * Lombok: optimiza descripción de la base de datos
+     * _Lombok_: optimiza descripción de la base de datos
 
 3. Homologar la apariencia de la vista.
 
@@ -51,7 +51,7 @@ De acuerdo a la guía de construcción de software, hay que hacer lo siguiente.
 
     La creación de las tablas, configuración de llaves foráneas se encuentran en la sección de [entidades](/db/models).
 
-    Lo relacionado con los _CRUD_ de la base de datos está en la sección del [_DAO_](/db/dao).
+    Lo relacionado con los `CRUD` de la base de datos está en la sección del [_DAO_](/db/dao).
 
 5. Implementar cada caso de uso
 
@@ -66,7 +66,7 @@ De acuerdo a la guía de construcción de software, hay que hacer lo siguiente.
 
     * El [servicio](/service/): la lógica del caso de uso.
     * El [controlador](/controller/): mapear las peticiones _HTTP_ a las acciones del servicio.
-    * Las [vistas](/ui/): como _HTML_ en conjunto con _Thymeleaf_.
+    * Las [vistas](/layout/): como _HTML_ en conjunto con _Thymeleaf_.
 
     Para esto deben usar el _DAO_ proporcionado por los modelos. Puede modificarse de ser necesario.
 
