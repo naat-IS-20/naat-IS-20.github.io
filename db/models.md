@@ -205,6 +205,43 @@ public class Order {
 }
 ```
 
+## Algunos tipos de datos
+
+### Fechas
+
+Usar  `LocalDate` del paquete `java.time`.
+
+Para definir una fecha de creación, existe la anotación `@CreationTimestamp`.
+
+```java
+...
+import java.time.LocalDate;
+import org.hibernate.annotations.CreationTimestamp;
+...
+@CreationTimestamp
+private LocalDate delivery_date;
+...
+```
+
+También existe una fecha de modificación `@UpdateTimestampo` que funciona de la misma manera.
+
+### Dominios específicos
+
+Para restringir valores, usar `Enumerate`. No necesita tener nada especial.
+
+Al poner el atributo en la entidad, debe estar anotado con `@Enumerated`.
+
+Por ejemplo, si se define una enumeración `DeliveryStatus`,
+
+```java
+...
+import javax.persistence.Enumerated;
+import javax.persistence.Enumerated;
+...
+@Enumerated(EnumType.STRING)
+private DeliveryStatus status;
+```
+
 ## Referencias
 
 * <https://www.baeldung.com/spring-data-rest-relationships>

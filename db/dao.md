@@ -57,7 +57,11 @@ public interface FlowerRepository extends CrudRepository<Flower, Long>{}
 Al momento de compilación, _Spring Boot_ encontrará esta interfaz, y generará
 una clase concreta encargada de manipular la entidad.
 
-# Referencias
+## Añadir métodos
+
+Se puede añadir métodos al _DAO_ simplemente añadiendo la firma del método.
+
+## Referencias
 
 * <https://github.com/spring-projects/spring-data-commons>
 
